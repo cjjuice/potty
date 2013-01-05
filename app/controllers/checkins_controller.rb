@@ -16,7 +16,7 @@ class CheckinsController < ApplicationController
         
         average_rating = (total/scores.count).to_f
           
-        reply_text = "There is one bathroom here, it has an average rating of #{average_rating} out of 5 stars. Add your own rating!"
+        reply_text = "There is one bathroom here, it has an average rating of 6 out of 5 stars. Add your own rating!"
       elsif b_count > 1
         total = 0
         btotal = 0
