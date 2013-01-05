@@ -1,4 +1,4 @@
-<h1><%= @bathroom.name %></h1>
+<h1 style="padding-bottom:15px;"><%= @bathroom.name %></h1>
 <p>Average Rating: <%= @average_rating %> / 5 </p>
 <div class="rating">
 	<%= form_for @score do |f| %>
@@ -14,11 +14,11 @@
 	  <% end %>
 
 	  <div class="field">
-	    <%= f.radio_button :value, '1' %>
-	    <%= f.radio_button :value, '2' %>
-	    <%= f.radio_button :value, '3' %>
-	    <%= f.radio_button :value, '4' %>
-	    <%= f.radio_button :value, '5' %>
+	    <%= f.radio_button :value, '1', :class => "star" %>
+	    <%= f.radio_button :value, '2', :class => "star" %>
+	    <%= f.radio_button :value, '3', :class => "star" %>
+	    <%= f.radio_button :value, '4', :class => "star" %>
+	    <%= f.radio_button :value, '5', :class => "star" %>
 	  </div>
 	  
 	  <div class="actions"><%= f.submit "Rate!", :id => "rate" %></div>

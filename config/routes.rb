@@ -2,13 +2,14 @@ BathroomRater::Application.routes.draw do
   
   match 'bathrooms/show/:vid' => 'scores#new'
   match 'venues/show/:vid' => 'venues#show'
-  match 'bathrooms/create/:vid' => 'bathrooms#create'
+  match 'bathrooms/create/:vid' => 'bathrooms#new'
   match 'scores/create/:vid' => 'scores#new'
   
 
   resources :checkins
   resources :scores
-  resource :user
+  resources :user
+  resources :bathrooms
 
 	scope module: 'clients' do
 		resources :foursquare_clients, only: ['new'], path: 'clients/foursquare' do
