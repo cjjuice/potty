@@ -8,7 +8,7 @@ BathroomRater::Application.routes.draw do
 
   resources :checkins
   resources :scores
-  resources :user
+  resource :user
   resources :bathrooms
 
 	scope module: 'clients' do
