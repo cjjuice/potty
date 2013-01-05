@@ -43,7 +43,7 @@ class CheckinsController < ApplicationController
     end  
     
     user = FoursquareUser.find_by_foursquare_id(checkin['user']['id'])
-    user.client.create_checkin_reply(checkin['id'], text: reply_text, url: "http://www.foo.com/")
+    user.client.create_checkin_reply(checkin['id'], text: reply_text, url: url)
     return head :ok
   end
 end
