@@ -1,2 +1,9 @@
-<h1>Bathrooms#show</h1>
-<p>Find me in app/views/bathrooms/show.html.erb</p>
+<h1><%= @bathroom.name %></h1>
+<div class="rating">
+  <input name="star1" value="1" type="radio" class="star" />
+  <input name="star1" value="2" type="radio" class="star" />
+  <input name="star1" value="3" type="radio" class="star" />
+  <input name="star1" value="4" type="radio" class="star" />
+  <input name="star1" value="5" type="radio" class="star" />
+</div>
+<p><%= @bathroom.scores.count %> ratings </p>

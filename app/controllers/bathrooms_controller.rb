@@ -3,5 +3,7 @@ class BathroomsController < ApplicationController
   end
 
   def show
+    vid = params[:vid]
+    @bathroom = Bathroom.where(vid: vid).first
   end
 end

@@ -16,7 +16,8 @@ class CheckinsController < ApplicationController
         
         average_rating = total/(scores.count.to_f)
           
-        reply_text = "There is one bathroom here, it has an average rating of #{average_rating.round(2)} out of 5 stars. Add your own rating!"
+        reply_text = "There is one bathroom here, it has an average rating of #{average_rating.round(2)} out of 5 stars"
+        url = "http://potty.herokuapp.com/scores/new/#{bathrooms.first.id}"
       elsif b_count > 1
         total = 0
         btotal = 0
@@ -31,9 +32,11 @@ class CheckinsController < ApplicationController
         
         average_b_rating = (btotal/(b_count.to_f))
         
-        reply_text ="There is #{b_count} bathrooms here with an average rating of #{average_b_rating.round(2)} out of 5 stars. Check out the details!" 
+        reply_text ="There is #{b_count} bathrooms here with an average rating of #{average_b_rating.round(2)} out of 5 stars. Check out the details!"
+        url = "http://potty.herokuapp.com/venues/show/#{checkin[venue][id]}" 
       else
         reply_text ="Mayday! There are no bathrooms recorded here. Add one!"
+        url = "http://potty.herokuapp.com/bathrooms/create/#{checkin[venue][id]}"
       end      
     else
       raise  "secret does not match"

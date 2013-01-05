@@ -1,0 +1,27 @@
+<h1><%= @bathroom.name %></h1>
+<p>Average Rating: <%= @average_rating %> / 5 </p>
+<div class="rating">
+	<%= form_for @score do |f| %>
+	  <% if @score.errors.any? %>
+	    <div class="error_messages">
+	      <h2>Form is invalid</h2>
+	      <ul>
+	        <% @score.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="field">
+	    <%= f.radio_button :value, '1' %>
+	    <%= f.radio_button :value, '2' %>
+	    <%= f.radio_button :value, '3' %>
+	    <%= f.radio_button :value, '4' %>
+	    <%= f.radio_button :value, '5' %>
+	  </div>
+	  
+	  <div class="actions"><%= f.submit "Rate!", :id => "rate" %></div>
+	<% end %>
+</div>
+<p><%= @bathroom.scores.count %> ratings </p>

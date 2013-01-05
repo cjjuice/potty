@@ -1,13 +1,13 @@
 BathroomRater::Application.routes.draw do
   
-  get "scores/create"
-
-  get "bathrooms/create"
-
-  get "bathrooms/show"
+  match 'bathrooms/show/:vid' => 'scores#new'
+  match 'venues/show/:vid' => 'venues#show'
+  match 'bathrooms/create/:vid' => 'bathrooms#create'
+  match 'scores/create/:vid' => 'scores#new'
+  
 
   resources :checkins
-
+  resources :scores
   resource :user
 
 	scope module: 'clients' do
