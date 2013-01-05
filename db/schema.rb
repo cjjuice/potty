@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105145529) do
+ActiveRecord::Schema.define(:version => 20130105155809) do
 
   create_table "bathrooms", :force => true do |t|
     t.integer  "vid"
     t.string   "name"
-    t.string   "type"
+    t.string   "btype"
     t.boolean  "is_public"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(:version => 20130105145529) do
 
   create_table "scores", :force => true do |t|
     t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "bathroom_id"
   end
 
 end
