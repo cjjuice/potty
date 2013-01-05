@@ -1,5 +1,11 @@
 BathroomRater::Application.routes.draw do
   
+  get "scores/create"
+
+  get "bathrooms/create"
+
+  get "bathrooms/show"
+
   resources :checkins
 
   resource :user
