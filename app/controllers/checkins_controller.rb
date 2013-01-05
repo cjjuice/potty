@@ -3,8 +3,9 @@ class CheckinsController < ApplicationController
 
   def create
     checkin = JSON.parse(params['checkin'])
+    venue_id = checkin[venue][id]
     if params[:secret] == 'P54CNYFVKTWOOEKTHRPPGWC5Q3PYA5GBRR101LYGGMNQYDFK'
-      bathrooms = Bathroom.where(vid: checkin['venue']['id'])
+      bathrooms = Bathroom.where(vid: venue_id)
       b_count = bathrooms.count
       if b_count == 1 
         scores = bathrooms.first.scores 
@@ -36,7 +37,7 @@ class CheckinsController < ApplicationController
         url = "http://potty.herokuapp.com/venues/show/#{checkin[venue][id]}" 
       else
         reply_text ="Mayday! There are no bathrooms recorded here. Add one!"
-        url = "http://potty.herokuapp.com/bathrooms/create/#{checkin[venue][id]}"
+        url = "http://potty.herokuapp.com/bathrooms/create/#{venue_id}"
       end      
     else
       raise  "secret does not match"
