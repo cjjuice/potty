@@ -14,7 +14,7 @@ class CheckinsController < ApplicationController
           total = total + score.value  
         end
         
-        average_rating = total/scores.count
+        average_rating = (total/scores.count).to_f
           
         reply_text = "There is one bathroom here, it has an average rating of #{average_rating.round(2)} out of 5 stars. Add your own rating!"
       elsif b_count > 1
@@ -26,10 +26,10 @@ class CheckinsController < ApplicationController
             scores.each do |score|
               total = total + score.value  
             end
-          btotal = btotal + (total/scores.count)  
+          btotal = btotal + (total/scores.count).to_f  
         end  
         
-        average_b_rating = btotal/b_count
+        average_b_rating = (btotal/b_count).to_f
         
         reply_text ="There is #{b_count} bathrooms here with an average rating of #{average_b_rating.round(2)} out of 5 stars. Check out the details!" 
       else
