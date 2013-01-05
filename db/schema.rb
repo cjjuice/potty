@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105155809) do
+ActiveRecord::Schema.define(:version => 20130105180035) do
 
   create_table "bathrooms", :force => true do |t|
-    t.integer  "vid"
+    t.string   "vid"
     t.string   "name"
     t.string   "btype"
     t.boolean  "is_public"
