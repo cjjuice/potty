@@ -6,8 +6,8 @@ class CheckinsController < ApplicationController
     if params[:secret] == 'P54CNYFVKTWOOEKTHRPPGWC5Q3PYA5GBRR101LYGGMNQYDFK'
       bathrooms = Bathroom.where(vid: checkin['venue']['id'])
       b_count = bathrooms.count
-      if b_count = 1
-        scores = bathrooms.first.scores
+      if b_count == 1 
+        scores = bathrooms.first.scores 
         total = 0
         
         scores.each do |score|
