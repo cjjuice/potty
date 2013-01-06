@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
   def new
       vid = session[:vid] if session[:vid]
       vid = params[:vid] if params[:vid]
-      @bathroom = Bathroom.find(session[:bathroom])
+      @bathroom = Bathroom.where(vid: vid).first
       session[:bathroom] = @bathroom.id
       
       scores = @bathroom.scores 
