@@ -13,7 +13,7 @@
 	    </div>
 	  <% end %>
 
-	  <div class="field">
+	  <div style="font-size:22px;" class="field">
 	    <%= f.radio_button :value, '1', :class => "star" %>
 	    <%= f.radio_button :value, '2', :class => "star" %>
 	    <%= f.radio_button :value, '3', :class => "star" %>
@@ -21,7 +21,7 @@
 	    <%= f.radio_button :value, '5', :class => "star" %>
 	  </div>
 	  
-	  <div class="actions"><%= f.submit "Rate!", :id => "rate" %></div>
+	  <div style="font-size:22px;" class="actions"><%= f.submit "Rate!", :id => "rate" %></div>
 	<% end %>
 </div>
 <p><%= @bathroom.scores.count %> ratings </p>
