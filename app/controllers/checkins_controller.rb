@@ -3,7 +3,7 @@ class CheckinsController < ApplicationController
 
   def create
     checkin = JSON.parse(params['checkin'])
-    venue_id = checkin[venue][id]
+    venue_id = checkin["venue"]["id"]
     if params[:secret] == 'P54CNYFVKTWOOEKTHRPPGWC5Q3PYA5GBRR101LYGGMNQYDFK'
       bathrooms = Bathroom.where(vid: venue_id)
       b_count = bathrooms.count
@@ -18,7 +18,7 @@ class CheckinsController < ApplicationController
         average_rating = total/(scores.count.to_f)
           
         reply_text = "There is one bathroom here, it has an average rating of #{average_rating.round(2)} out of 5 stars"
-        url = "http://potty.herokuapp.com/scores/new/#{bathrooms.first.id}"
+        url = "http://potty.herokuapp.com/scores/new/#{bathrooms.first.vid}"
       elsif b_count > 1
         total = 0
         btotal = 0
@@ -34,7 +34,7 @@ class CheckinsController < ApplicationController
         average_b_rating = (btotal/(b_count.to_f))
         
         reply_text ="There is #{b_count} bathrooms here with an average rating of #{average_b_rating.round(2)} out of 5 stars. Check out the details!"
-        url = "http://potty.herokuapp.com/venues/show/#{checkin[venue][id]}" 
+        url = "http://potty.herokuapp.com/venues/show/#{venue_id}" 
       else
         reply_text ="Mayday! There are no bathrooms recorded here. Add one!"
         url = "http://potty.herokuapp.com/bathrooms/create/#{venue_id}"
