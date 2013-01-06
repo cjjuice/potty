@@ -1,5 +1,5 @@
 <h1 style="padding-bottom:15px;"><%= @bathroom.name %></h1>
-<p>Average Rating: <%= @average_rating %> / 5 </p>
+<h3>Average Rating: <%= @average_rating %> / 5 </h3>
 <div class="rating">
 	<%= form_for @score do |f| %>
 	  <% if @score.errors.any? %>
