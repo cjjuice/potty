@@ -18,9 +18,10 @@ class ScoresController < ApplicationController
   end
   
   def create
+    @bathroom = Bathroom.find(session[:bathroom])
     @score = Score.new(params[:score])
     @score.bathroom = Bathroom.find(session[:bathroom])  
-    bathroom_vid = Bathroom.find(session[:bathroom]).vid
+    bathroom_vid = @bathroom.vid
     if @score.save
       redirect_to "/scores/create/#{bathroom_vid}", :notice => "successfully"
     else
