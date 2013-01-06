@@ -19,7 +19,6 @@ class ScoresController < ApplicationController
   
   def create
     @bathroom = Bathroom.find(session[:bathroom])
-    @bathroom_name = @bathroom.name
     @score = Score.new(params[:score])
     @score.bathroom = Bathroom.find(session[:bathroom])  
     bathroom_vid = @bathroom.vid
