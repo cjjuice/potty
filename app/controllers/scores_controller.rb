@@ -12,7 +12,11 @@ class ScoresController < ApplicationController
         total = total + score.value  
       end
       
-      @average_rating = (total/(scores.count.to_f)).round(2)
+      if scores
+        @average_rating = (total/(scores.count.to_f)).round(2)
+      else
+        @average_rating = 0
+      end    
       
       @score = Score.new
   end
