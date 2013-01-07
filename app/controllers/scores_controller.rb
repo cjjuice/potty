@@ -27,7 +27,7 @@ class ScoresController < ApplicationController
     @score.bathroom = Bathroom.find(session[:bathroom])  
     bathroom_vid = @bathroom.vid
     if @score.save
-      redirect_to "/scores/create/#{bathroom_vid}", :notice => "successfully"
+      redirect_to "/scores/create/#{bathroom_vid}", :notice => "rating added!"
     else
       render "new"
     end   
