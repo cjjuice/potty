@@ -20,7 +20,7 @@ BathroomRater::Application.routes.draw do
 	end
 
 
-  root :to => 'users#new'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

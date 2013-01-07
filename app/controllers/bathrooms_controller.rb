@@ -1,9 +1,9 @@
 class BathroomsController < ApplicationController
   def new
-      vid = params[:vid]
-      session[:vid] = vid
+    vid = params[:vid]
+    session[:vid] = vid
 
-      @bathroom = Bathroom.new
+    @bathroom = Bathroom.new
   end
   
   def create
