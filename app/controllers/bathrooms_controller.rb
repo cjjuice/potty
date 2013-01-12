@@ -10,7 +10,7 @@ class BathroomsController < ApplicationController
     @bathroom = Bathroom.new(params[:score])
     @bathroom.vid = session[:vid]
     if @bathroom.save
-      redirect_to "/scores/create/#{session[:vid]}", :notice => "Bathroom Added! Now rate it!"
+      redirect_to "/scores/create/#{session[:vid]}", :notice => "Bathroom added! Now rate it!"
     else
       render "new"
     end   
